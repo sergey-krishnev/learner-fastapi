@@ -1,0 +1,64 @@
+# ---- Python / Bytecode ----
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---- Virtual envs ----
+.venv/
+venv/
+ENV/
+.python-version
+
+# ---- Package / Build artifacts ----
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---- Tooling caches ----
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.coverage
+coverage.xml
+htmlcov/
+
+# ---- Logs / Runtime ----
+*.log
+logs/
+uvicorn.log
+
+# ---- Environment & secrets ----
+.env
+.env.*
+!.env.example      # оставьте шаблон окружения в репо
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.iml
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+
+# ---- Database / Media (опционально) ----
+*.sqlite3
+instance/
+media/
+uploads/
+
+# ---- Docker (если используете) ----
+# Игнорируйте локальные файлы сборки/данные, если они есть
+docker-compose.override.yml
+.docker/
+docker-data/
+
+# ---- Jupyter (если есть исследования) ----
+.ipynb_checkpoints/
+
+# ---- Misc ----
+*.swp
+*.swo
