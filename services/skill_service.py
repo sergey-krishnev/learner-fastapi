@@ -185,7 +185,7 @@ class SkillService:
         if new_parent is not None:
             children = await self._get_children_of_parent(db, new_parent.id)
         else:
-            children = await self.get_theories_by_skill(db, skill_id)  # корневые
+            children = await self._get_theories_by_skill(db, skill_id)  # корневые
 
         # 4) Обновить у target теории parent_id и временно order_index
         target.parent_id = new_parent.id if new_parent else None
@@ -242,6 +242,14 @@ class SkillService:
             .order_by(Theory.order_index)
         )
         return list(res.scalars())
+
+    async def _get_theories_by_skill(self, db: AsyncSession, skill_id: int) -> List[Theory]:
+        res_roots = await db.scalars(
+            select(Theory)
+            .where(and_(Theory.skill_id == skill_id, Theory.parent_id.is_(None)))
+            .order_by(Theory.order_index)
+        )
+        return list(res_roots)
 
     def _set_parent_and_skill_in_subtheories(self, parent: Theory, skill_id: int) -> None:
         """
