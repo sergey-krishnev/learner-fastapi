@@ -5,11 +5,7 @@ from pydantic import BaseModel
 class QuestBase(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
-    reward_points: int = 0
-    reading_points: int = 0
-    listening_points: int = 0
-    speaking_points: int = 0
-    writing_points: int = 0
+    preview: Optional[str] = None
 
 class QuestCreate(QuestBase):
     pass
