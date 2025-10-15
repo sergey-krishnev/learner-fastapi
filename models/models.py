@@ -18,11 +18,9 @@ from sqlalchemy.orm import (
     relationship,
 )
 
+from db.base import Base
+
 # ---------- Base ----------
-
-class Base(DeclarativeBase):
-    pass
-
 
 # ---------- Association Tables (link/junction) ----------
 profession_skill = Table(
@@ -152,12 +150,14 @@ class Quest(Base):
 
     name: Mapped[str | None] = mapped_column(String(255), nullable=True)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    preview: Mapped[str | None] = mapped_column(String(255), nullable=True)
 
-    reward_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    reading_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    listening_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    speaking_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    writing_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    # We are calculating reward_points according to completed theories and we store local points in mongodb quest
+    # reward_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    # reading_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    # listening_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    # speaking_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    # writing_points: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
     theories: Mapped[List[Theory]] = relationship(
         secondary=theory_quest,
@@ -165,7 +165,7 @@ class Quest(Base):
         lazy="selectin",
     )
 
-    __table_args__ = (CheckConstraint("title <> ''", name="ck_quest_title_not_blank"),)
+    __table_args__ = (CheckConstraint("name <> ''", name="ck_quest_name_not_blank"),)
 
 
 class UserProgress(Base):

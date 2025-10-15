@@ -10,7 +10,6 @@ class Settings(BaseSettings):
 
     # ==== Database ====
     db_url: str = Field(alias="APP_DB_URL")
-    db_sync_url: str | None = Field(default=None, alias="APP_DB_SYNC_URL")
 
     # ==== CORS ====
     cors_allowed_origins: list[str] = Field(default_factory=list, alias="APP_CORS_ALLOWED_ORIGINS")
