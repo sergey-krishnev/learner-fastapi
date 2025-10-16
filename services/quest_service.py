@@ -11,6 +11,9 @@ class QuestService:
     async def find_all(self, db: AsyncSession):
         return await quest_repo.find_all(db)
 
+    async def find_by_id(self, id: int, db: AsyncSession):
+        return await quest_repo.find_by_id(db, id)
+
     async def save(self, db: AsyncSession, payload: QuestCreate) -> Quest:
         obj = Quest(**payload.model_dump())
         await quest_repo.save(db, obj)

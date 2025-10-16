@@ -1,5 +1,5 @@
 # schemas/quest.py
-from typing import Optional
+from typing import Optional, Dict, Any
 from pydantic import BaseModel
 
 class QuestBase(BaseModel):
@@ -14,3 +14,6 @@ class QuestOut(QuestBase):
     id: int
     class Config:
         from_attributes = True
+
+class QuestDetailedOut(QuestOut):
+    scenario: Optional[Dict[str, Any]] = None

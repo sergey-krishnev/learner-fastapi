@@ -10,6 +10,8 @@ class Settings(BaseSettings):
 
     # ==== Database ====
     db_url: str = Field(alias="APP_DB_URL")
+    mongo_uri: str = Field(alias="APP_MONGO_URI")
+    mongo_db: str = Field(alias="APP_MONGO_DB")
 
     # ==== CORS ====
     cors_allowed_origins: list[str] = Field(default_factory=list, alias="APP_CORS_ALLOWED_ORIGINS")
