@@ -1,0 +1,11 @@
+black==25.9.0
+fastapi-cli==0.0.13
+rich==14.1.0
+rich-toolkit==0.15.1
+Pygments==2.19.2
+markdown-it-py==4.0.0
+typer==0.19.2
+shellingham==1.5.4
+colorama==0.4.6
+rignore==0.7.0
+pytokens==0.2.0
