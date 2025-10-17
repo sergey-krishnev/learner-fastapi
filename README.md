@@ -23,7 +23,7 @@ APP_DB_URL=postgresql+asyncpg://user:user@localhost:5432/learner
 APP_MONGO_URI=mongodb://localhost:27017
 APP_MONGO_DB=quests
 
-# ==== CORS (эквивалент твоему WebConfig) ====
+# ==== CORS ====
 APP_CORS_ALLOWED_ORIGINS=["http://localhost:5173"]
 APP_CORS_ALLOWED_METHODS=["GET","POST","PUT","DELETE"]
 APP_CORS_ALLOWED_HEADERS=["*"]
