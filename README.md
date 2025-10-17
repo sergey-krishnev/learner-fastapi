@@ -30,4 +30,8 @@ APP_CORS_ALLOWED_HEADERS=["*"]
 APP_CORS_ALLOW_CREDENTIALS=true
 APP_CORS_MAX_AGE=3600
 
-.env is loaded by pydantic-settings + python-dotenv.
+# 5) Launch REST service
+# Dev
+fastapi dev main.py
+# Prod
+uvicorn app.main:app --host 0.0.0.0 --port 8000
