@@ -35,3 +35,8 @@ APP_CORS_MAX_AGE=3600
 fastapi dev main.py
 # Prod
 uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+//TODO plans:
+1) Migrate to poetry or uv
+2) Add unit tests and integration tests
+3) Add login via Google
